@@ -32,7 +32,11 @@ document.addEventListener('DOMContentLoaded', function () {
                 MenuIcon.src = MenuIcon.src.replace("close", "menu");
                 dropdownMenu.classList.toggle("hidden");
             }
-
+        } else if (!dropdown.contains(event.target) && dropdownMenu.contains(event.target)) {
+            setTimeout(() => {
+                MenuIcon.src = MenuIcon.src.replace("close", "menu");
+                dropdownMenu.classList.toggle("hidden");
+            }, (200))
         }
     });
 });
@@ -61,9 +65,9 @@ async function _renderPage() {
     } else if (hash.includes("contact-me")) {
         ContactMeSection.style.display = 'flex';
     } else {
+        hash = "/home"
         HomeSection.style.display = 'flex';
     }
-
     _activeMenuItem(`menu-item-${hash.replace("/", "")}`);
 }
 
