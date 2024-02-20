@@ -50,16 +50,18 @@ async function _renderPage() {
 
     if (hash.includes("home")) {
         HomeSection.style.display = 'flex';
-    } if (hash.includes("about-me")) {
+    } else if (hash.includes("about-me")) {
         AboutMeSection.style.display = 'flex';
-    } if (hash.includes("skills")) {
+    } else if (hash.includes("skills")) {
         SkillsSection.style.display = 'flex';
-    } if (hash.includes("projects")) {
+    } else if (hash.includes("projects")) {
         ProjectsSection.style.display = 'flex';
-    } if (hash.includes("blogs")) {
+    } else if (hash.includes("blogs")) {
         BlogsSection.style.display = 'flex';
-    } if (hash.includes("contact-me")) {
+    } else if (hash.includes("contact-me")) {
         ContactMeSection.style.display = 'flex';
+    } else {
+        HomeSection.style.display = 'flex';
     }
 
     _activeMenuItem(`menu-item-${hash.replace("/", "")}`);
