@@ -90,3 +90,18 @@ function _activeMenuItem(id) {
 
     }
 }
+
+
+document.addEventListener("DOMContentLoaded", function () {
+    const scrollLeftButton = document.getElementById('scroll-left');
+    const scrollRightButton = document.getElementById('scroll-right');
+    const scrollBox = document.querySelector('.scroll-box');
+
+    scrollLeftButton.addEventListener('click', function () {
+        scrollBox.scrollBy({ left: -50, behavior: 'smooth' });
+    });
+
+    scrollRightButton.addEventListener('click', function () {
+        scrollBox.scrollBy({ left: 50, behavior: 'smooth' });
+    });
+});
