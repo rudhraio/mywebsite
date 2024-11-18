@@ -106,7 +106,7 @@ document.addEventListener("DOMContentLoaded", function () {
     });
 });
 
-document.querySelector("contactform").addEventListener("submit", function (e) {
+document.querySelector("form").addEventListener("submit", function (e) {
     e.preventDefault();
 
     const formData = new FormData(this);
