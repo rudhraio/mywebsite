@@ -105,3 +105,35 @@ document.addEventListener("DOMContentLoaded", function () {
         scrollBox.scrollBy({ left: 50, behavior: 'smooth' });
     });
 });
+
+document.querySelector("contactform").addEventListener("submit", function (e) {
+    e.preventDefault();
+
+    const formData = new FormData(this);
+    const url = "https://form.rudhra.io/form-handle.php";
+
+    fetch(url, {
+        method: "POST",
+        body: formData,
+    })
+        .then((response) => {
+            if (!response.ok) {
+                throw new Error(`HTTP error! status: ${response.status}`);
+            }
+            return response.json(); // Parse JSON response
+        })
+        .then((data) => {
+            console.log(data); // Log the response for debugging
+            if (data.status === 200) {
+                document.getElementById('successMessage').style.display = 'block';
+                document.getElementById('contactForm').reset();
+                this.reset();
+            } else {
+                document.getElementById('errorMessage').style.display = 'block';
+            }
+        })
+        .catch((error) => {
+            console.error("Error:", error.message);
+            document.getElementById('errorMessage').style.display = 'block';
+        });
+});
