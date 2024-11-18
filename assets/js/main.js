@@ -127,7 +127,6 @@ document.querySelector("form").addEventListener("submit", function (e) {
             if (data.status === 200) {
                 document.getElementById('successMessage').style.display = 'block';
                 document.getElementById('contactForm').reset();
-                this.reset();
             } else {
                 document.getElementById('errorMessage').style.display = 'block';
             }
